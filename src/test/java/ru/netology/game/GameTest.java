@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GameTest {
@@ -20,11 +21,11 @@ public class GameTest {
         game.register(player2);
         game.register(player3);
 
-        List<Player> expected = new ArrayList<>();
-        expected.add(player1);
-        expected.add(player2);
-        expected.add(player3);
-        List<Player> actual = game.getPlayers();
+        HashMap<String, Player> expected = new HashMap<>();
+        expected.put(player1.getName(), player1);
+        expected.put(player2.getName(), player2);
+        expected.put(player3.getName(), player3);
+        HashMap<String, Player> actual = game.getPlayers();
 
         Assertions.assertEquals(expected, actual);
     }
